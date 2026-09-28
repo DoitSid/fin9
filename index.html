@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Fin9 product capability library and use-case map." />
+    <title>Fin9 Capability Library</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="sidebar-top">
+          <a class="brand" href="#top" aria-label="Fin9 capability library home">
+            <img src="public/logo_dark_transparent.png" alt="Fin9" class="brand-logo" />
+          </a>
+          <div class="product-label">
+            <span class="status-dot"></span>
+            Capability library
+          </div>
+          <nav class="sidebar-nav">
+            <a class="nav-link active" href="#use-cases"><span class="nav-index">01</span><span>Use-case map</span><span class="nav-arrow">></span></a>
+            <a class="nav-link" href="#capabilities"><span class="nav-index">02</span><span>Capability catalog</span><span class="nav-arrow">></span></a>
+            <a class="nav-link" href="#coverage"><span class="nav-index">03</span><span>Coverage summary</span><span class="nav-arrow">></span></a>
+          </nav>
+        </div>
+        <div class="sidebar-footer">
+          <div class="mini-rule"></div>
+          <p>Fin9 product intelligence</p>
+          <span>Detailed use-case mapping / 2026</span>
+        </div>
+      </aside>
+
+      <main class="main-content" id="top">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Fin9</span><span class="crumb-slash">/</span><span>Product capability library</span></div>
+          <div class="topbar-actions">
+            <button class="outline-button" id="resetAll" type="button">Reset view</button>
+            <button class="search-trigger" id="focusSearch" type="button" aria-label="Focus search"><span class="search-mark">/</span><span>Search library</span><kbd>Ctrl K</kbd></button>
+          </div>
+        </header>
+
+        <section class="hero-section">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span> Fin9 / Capability intelligence</div>
+            <h1>From business need<br /><span>to Fin9 capability.</span></h1>
+            <p class="hero-description">A living map of what Fin9 can support today, where configuration is needed, and how each workflow becomes actionable.</p>
+            <div class="hero-actions">
+              <a class="primary-button" href="#use-cases">Explore use cases <span>-></span></a>
+              <button class="text-button" type="button" id="openDirect">View direct coverage <span>-></span></button>
+            </div>
+          </div>
+          <div class="hero-index" aria-label="Library statistics">
+            <div class="index-label">LIBRARY INDEX</div>
+            <div class="index-number">60</div>
+            <div class="index-caption">mapped business<br />use cases</div>
+            <div class="hero-microstats">
+              <span><b>33</b> direct</span>
+              <span><b>18</b> partial</span>
+              <span><b>09</b> platform</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="coverage-strip" id="coverage">
+          <div class="section-intro compact-intro">
+            <div class="eyebrow"><span class="eyebrow-line"></span> Coverage at a glance</div>
+            <h2>Operational confidence,<br />with the edges visible.</h2>
+          </div>
+          <div class="coverage-metrics" id="summaryMetrics"></div>
+        </section>
+
+        <section class="library-section" id="use-cases">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span> 01 / Use-case map</div>
+              <h2>What the platform can do.</h2>
+            </div>
+            <div class="result-count" id="resultCount">60 use cases</div>
+          </div>
+
+          <div class="library-toolbar">
+            <div class="search-box">
+              <span class="search-glyph">/</span>
+              <input id="searchInput" type="search" placeholder="Search use cases, stakeholders, capabilities..." autocomplete="off" />
+              <kbd>Ctrl K</kbd>
+            </div>
+            <div class="filter-group" role="group" aria-label="Filter by match type">
+              <button class="filter-button active" type="button" data-filter="all">All <span>60</span></button>
+              <button class="filter-button" type="button" data-filter="Direct">Direct <span>33</span></button>
+              <button class="filter-button" type="button" data-filter="Partial">Partial <span>18</span></button>
+              <button class="filter-button" type="button" data-filter="Platform">Platform <span>09</span></button>
+            </div>
+          </div>
+
+          <div class="active-filters" id="activeFilters" aria-live="polite"></div>
+          <div class="use-case-grid" id="useCaseGrid"></div>
+          <div class="empty-state" id="emptyState" hidden>
+            <div class="empty-number">0</div>
+            <h3>No mapped use cases found.</h3>
+            <p>Try a broader search or clear the current filters.</p>
+            <button class="outline-button" id="clearSearch" type="button">Clear filters</button>
+          </div>
+        </section>
+
+        <section class="catalog-section" id="capabilities">
+          <div class="section-heading catalog-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span> 02 / Capability catalog</div>
+              <h2>The building blocks underneath.</h2>
+            </div>
+            <div class="catalog-note">25 named capabilities<br />across 4 domains</div>
+          </div>
+          <div class="catalog-grid" id="catalogGrid"></div>
+        </section>
+
+        <footer class="site-footer">
+          <div class="footer-brand"><img src="public/logo_dark_transparent.png" alt="Fin9" /></div>
+          <span>Product capability library</span>
+          <span>Source: Fin9 Detailed Use Case Mapping</span>
+        </footer>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="modalBackdrop" hidden></div>
+    <aside class="detail-drawer" id="detailDrawer" aria-hidden="true" aria-labelledby="drawerTitle" role="dialog">
+      <div class="drawer-topbar">
+        <span class="drawer-kicker" id="drawerKicker">USE CASE 01</span>
+        <button class="close-button" id="closeDrawer" type="button" aria-label="Close detail drawer">x</button>
+      </div>
+      <div class="drawer-scroll">
+        <div class="drawer-heading">
+          <span class="match-badge" id="drawerMatch">Direct match</span>
+          <h2 id="drawerTitle">Use case title</h2>
+          <p id="drawerDescription">Use case description</p>
+        </div>
+        <div class="drawer-meta" id="drawerMeta"></div>
+        <div class="drawer-block">
+          <div class="drawer-label">Fin9 capability mapping</div>
+          <div class="drawer-capability-list" id="drawerCapabilities"></div>
+        </div>
+        <div class="drawer-block support-block">
+          <div class="drawer-label">How Fin9 can support</div>
+          <p id="drawerSupport"></p>
+        </div>
+        <div class="drawer-grid">
+          <div class="drawer-block">
+            <div class="drawer-label">Required integrations / data</div>
+            <div class="drawer-detail-list" id="drawerIntegrations"></div>
+          </div>
+          <div class="drawer-block gap-block">
+            <div class="drawer-label">Gap / additional development</div>
+            <p id="drawerGap"></p>
+          </div>
+        </div>
+        <div class="drawer-next" id="drawerNext"></div>
+      </div>
+    </aside>
+
+    <script src="app.js"></script>
+  </body>
+</html>
